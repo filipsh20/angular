@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,14 +7,13 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  user: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-  });
+  username = '';
 
-  ngOnSubmit(): void {
-    const { username, email, password } = this.user.value;
-    console.log(username, email, password);
+  handleUsername(event) {
+    console.log(event);
+  }
+
+  submit() {
+    console.log(this.username);
   }
 }
