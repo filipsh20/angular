@@ -1,15 +1,18 @@
 <div class="container">
   <div class="content">
     <h1>Registrarse</h1>
-    <form class="form" novalidate (submit)="submit()">
+    <form [formGroup]="form" class="form" novalidate (submit)="submit()">
       <div class="controller">
-        <input (change)="handleUsername()" type="text" placeholder="Elige tu nombre de usuario" />
+        <input formControlName="username" type="text" placeholder="Elige tu nombre de usuario" />
+        <div *ngIf="form.get('username')?.hasError('error')">Error</div>
       </div>
       <div class="controller">
-        <input type="text" placeholder="Correo electrónico" />
+        <input formControlName="email" type="text" placeholder="Correo electrónico" />
+        <div *ngIf="form.get('email')?.hasError('error')">Error</div>
       </div>
       <div class="controller">
-        <input type="text" placeholder="Crea una contraseña segura" />
+        <input formControlName="password" type="text" placeholder="Crea una contraseña segura" />
+        <div *ngIf="form.get('password')?.hasError('error')">Error</div>
       </div>
       <button>Crear cuenta</button>
     </form>

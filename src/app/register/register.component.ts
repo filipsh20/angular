@@ -1,5 +1,10 @@
-import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  usernameValidator,
+  emailValidator,
+  passwordValidator,
+} from './validators';
 
 @Component({
   selector: 'app-register',
@@ -7,13 +12,16 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  username = '';
+  constructor(private formBuilder: FormBuilder) {}
 
-  handleUsername(event) {
-    console.log(event);
-  }
+  form: FormGroup<any> = this.formBuilder.group({
+    username: ['', [Validators.required, usernameValidator]],
+    email: ['', [Validators.required, emailValidator]],
+    password: ['', [Validators.required, passwordValidator]],
+  });
 
   submit() {
-    console.log(this.username);
+    const { username, email, password } = this.form.controls;
+    console.log(username.value, email.value, password.value);
   }
 }

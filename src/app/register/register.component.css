@@ -4,7 +4,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-image: url("../../assets/background.jpg");
   background-position: center;
   background-size: cover;
@@ -12,10 +12,11 @@
 }
 
 .content {
+  margin-left: 12%;
   text-align: center;
   border-radius: 10px;
   padding: 30px;
-  background-color: aliceblue;
+  background-color: white;
 }
 
 input {
@@ -28,14 +29,25 @@ input {
   border-radius: 10px;
 }
 
+input:focus {
+  outline: 1px solid rgb(16, 125, 215);
+}
+
 button {
   width: 100%;
   height: 40px;
   border: none;
-  background-color: rgb(171, 192, 235);
   color: white;
   border-radius: 10px;
   margin-top: 15px;
+}
+
+button:disabled {
+  background-color: rgb(171, 192, 235);
+}
+
+button:enabled {
+  background-color: rgb(16, 125, 215);
 }
 
 .divider {
@@ -48,16 +60,16 @@ button {
   flex-direction: row;
 }
 
-.alternatives button{
+.alternatives button {
   margin: 5px;
 }
 
-.changer{
+.changer {
   margin-top: 20px;
 }
 
-a{
+a {
   text-decoration: none;
-  font-weight: 600;
-  color: blue;
+  font-weight: bold;
+  color: rgb(16, 125, 215);
 }
