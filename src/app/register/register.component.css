@@ -19,6 +19,18 @@
   background-color: white;
 }
 
+.controller{
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+
+.error{
+  position: absolute;
+  margin-right: 5px;
+  margin-top: 4px;
+}
+
 input {
   width: 100%;
   height: 40px;

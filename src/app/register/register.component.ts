@@ -4,7 +4,7 @@ import {
   usernameValidator,
   emailValidator,
   passwordValidator,
-} from './validators';
+} from '../../utils/validators';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +13,30 @@ import {
 })
 export class RegisterComponent {
   constructor(private formBuilder: FormBuilder) {}
+
+  usernameTouched = false;
+  emailTouched = false;
+  passwordTouched = false;
+
+  onFieldFocus(fieldName: string) {
+    if (fieldName === 'username') {
+      this.usernameTouched = true;
+    } else if (fieldName === 'email') {
+      this.emailTouched = true;
+    } else if (fieldName === 'password') {
+      this.passwordTouched = true;
+    }
+  }
+
+  onFieldBlur(fieldName: string) {
+    if (fieldName === 'username') {
+      this.usernameTouched = true;
+    } else if (fieldName === 'email') {
+      this.emailTouched = true;
+    } else if (fieldName === 'password') {
+      this.passwordTouched = true;
+    }
+  }
 
   form: FormGroup<any> = this.formBuilder.group({
     username: ['', [Validators.required, usernameValidator]],
